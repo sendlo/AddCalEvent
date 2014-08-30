@@ -9,28 +9,27 @@ Include the [AddCalEvent.js](https://github.com/sendlo/AddCalEvent/blob/master/s
 
 ##Usage
 1. Create the following html structure on your page. The anchor tag can be structured to look like any button you want. The only requirement is that the anchor tag should be displayed as inline-block.
-
-	<a>ADD TO CALENDAR</a>
+<code>
+	&lt;a>ADD TO CALENDAR&lt;/a>
+</code>
 		
 2. Add the event data. This can be passed in the config, or if you need multiple buttons on one page you can pass the data as a JSON string in a "data-ace" attribute on the anchor tag.
 
 3. Call the plugin:
-
+<code>
 	$(SELECTOR).addcalevent();
+</code>
 
 ##Data
-
 All parameters are optional. However, if you want this to work for Outlook and iCal you must provide the url that will generate the ics file response.
-
-<code>
+<code><pre>
 $(SELECTOR).addcalevent({
     'onclick': true,
     'apps': [1,2,4],
     'ics': '',
     'data': {}
 });
-</code>
-
+</pre></code>
 <ul>
 <li>onclick: Open the dropdown on click rather than mouseover (default: false)</li>
 <li>data: Event data (see below for format). This can also be set individually as a json string directly on each HTML element.</li>
@@ -45,10 +44,9 @@ $(SELECTOR).addcalevent({
 		<li>4 = iCal</li>
 	</ul>
 </ul>
-
 ###Format of event data object:
-
-<code>
+This object can be passed as the plugin config or inserted directly on the anchor tag as a JSON string in a "data-ace" attribute.
+<code><pre>
 {
 	title: '',
 	desc: '',
@@ -65,14 +63,12 @@ $(SELECTOR).addcalevent({
 		allday: false
 	}
 }
-</code>
+</pre></code>
 
 ##Demo
-
 See the demo folder.
 
 ##ics file generator
-
 An example of how you can generate the ics file for nodeJS using the icalevent module can also be found in the src folder.
 
 
