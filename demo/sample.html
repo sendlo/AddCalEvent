@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../src/AddCalEvent.css" type="text/css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="../src/AddCalEventZones.js"></script>
+	<script src="../src/AddCalEvent.js"></script>
+<style>
+.ace_btn {padding: 10px 20px;margin: 25px;display:inline-block;border:1px solid #999;}
+.ace_btn.dis {display:none;}
+</style>
+</head>
+<body>
+
+<p>Valid event, data in config:</br>
+<a class="ace_btn dis">ADD TO CALENDAR</a>
+</p>
+
+<p>Valid event, data inline:<br/>
+<a class="ace_btn dis" data-ace='{"title":"Event 2","desc":"Event 2 description","location":"Location of Event 2","time":{"start":"Jan 12, 1999", "end":"Jan 13, 2019", "zone":"+07:00"}}'>ADD TO CALENDAR</a>  
+</p>
+
+<p>Invalid event data (button should not appear):</br>
+<a class="ace_btn dis" data-ace='{"title":"Event 3","desc":"Event 2 description","location":"Location of Event 2","time":{"start":"Jan 12, 1999", "end":"Jan 13, 2019", "zone":"UTC+07:00"}}'>ADD TO CALENDAR</a>  
+</p>
+
+
+<script>
+
+$(".ace_btn").addcalevent({
+	'data': {
+		"title":"ebay live auction test",
+		"desc":"this is a live auction test \n testing new line.", 
+		"location": "my house",
+		"url": "http://www.ebay.com",		
+		"time":{
+			"start":"March 12, 2014 14:00:00",
+			"end":"march 13, 2014 15:30:00",
+			"zone":"-07:00"
+		},
+	},
+	'ics': "http://url to ics generator"
+});
+
+// Test "UDPATE" functionality. The date and title of the first item should be updated.
+$(".ace_btn").addcalevent({
+	'data': {
+		"title":"new title",
+		"desc":"this is a live auction test \n testing new line.", 
+		"location": "my house",
+		"url": "http://www.ebay.com",		
+		"time":{
+			"start":"March 11, 2014 14:00:00",
+			"end":"march 11, 2014 15:30:00",
+			"zone":"-07:00"
+		},
+	},
+	'ics': "http://url to ics generator"
+});
+
+</script>
+
+</body>
+</html>
