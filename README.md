@@ -9,6 +9,7 @@ Include the [AddCalEvent.js](https://github.com/sendlo/AddCalEvent/blob/master/s
 
 ##Usage
 1. Create the following html structure on your page. The anchor tag can be structured to look like any button you want. The only requirement is that the anchor tag should be displayed as inline-block.
+
 <code>
 	&lt;a>ADD TO CALENDAR&lt;/a>
 </code>
@@ -16,6 +17,7 @@ Include the [AddCalEvent.js](https://github.com/sendlo/AddCalEvent/blob/master/s
 2. Add the event data. This can be passed in the config, or if you need multiple buttons on one page you can pass the data as a JSON string in a "data-ace" attribute on the anchor tag.
 
 3. Call the plugin:
+
 <code>
 	$(SELECTOR).addcalevent();
 </code>
@@ -67,6 +69,9 @@ This object can be passed as the plugin config or inserted directly on the ancho
 
 ##Demo
 See the demo folder.
+
+##AddCalEventZone.js <optional utility>
+This file is optional. Ideally you will pass the timezone in the correct format (ie "+07:00"). But you can optionally include this helper JS file and pass the timezone in its abbreviated form (ie "PST"). Be warned, this unnecessarily increases your page weight.
 
 ##ics file generator
 An example of how you can generate the ics file for nodeJS using the icalevent module can also be found in the src folder.
